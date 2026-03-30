@@ -1,0 +1,97 @@
+<view class="page-container">
+  <view class="top-background">
+    <image src="/images/background.png" class="background-image" mode="aspectFill"></image>
+    <view class="background-overlay">
+      <text class="background-title">AR效果展示</text>
+      <text class="background-subtitle">鱼灯制作过程展示</text>
+    </view>
+  </view>
+
+  <!-- 标签页切换 -->
+  <view class="tabs-container">
+    <view
+      class="tab-item {{activeSection === 'steps' ? 'active' : ''}}"
+      bindtap="onSectionTap"
+      data-section="steps"
+    >
+      <text class="tab-text">制作步骤</text>
+    </view>
+    <view
+      class="tab-item {{activeSection === 'poster' ? 'active' : ''}}"
+      bindtap="onSectionTap"
+      data-section="poster"
+    >
+      <text class="tab-text">AR海报效果</text>
+    </view>
+  </view>
+
+  <!-- 制作步骤部分 -->
+  <view wx:if="{{activeSection === 'steps'}}" class="content-section">
+    <view class="steps-grid">
+      <block wx:for="{{steps}}" wx:for-item="step" wx:for-index="idx" wx:key="title">
+        <view class="step-card" bindtap="onStepTap" data-index="{{idx}}">
+          <image src="{{step.imageUrl}}" class="step-image" mode="aspectFill"></image>
+          <view class="step-info">
+            <view class="step-number">步骤 {{idx+1}}</view>
+            <view class="step-title">{{step.title}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- AR海报效果部分 - 六个格子布局 -->
+  <view wx:if="{{activeSection === 'poster'}}" class="content-section">
+    <view class="posters-grid">
+      <block wx:for="{{posters}}" wx:for-item="poster" wx:for-index="idx" wx:key="id">
+        <view class="poster-card">
+          <image
+            src="{{poster.qrImage}}"
+            class="poster-qr"
+            mode="aspectFit"
+            bindtap="onQrTap"
+            data-index="{{idx}}"
+            bindlongpress="onQrLongPress"
+            data-index="{{idx}}"
+          ></image>
+          <image
+            src="{{poster.posterImage}}"
+            class="poster-image"
+            mode="aspectFill"
+            bindtap="onPosterTap"
+            data-index="{{idx}}"
+            bindlongpress="onPosterLongPress"
+            data-index="{{idx}}"
+          ></image>
+          <view class="poster-video-wrapper">
+            <video
+              id="poster-video-{{idx}}"
+              src="{{poster.videoUrl}}"
+              class="poster-video"
+              bindplay="onVideoPlay"
+              binderror="onVideoError"
+            ></video>
+          </view>
+          <view class="poster-info">
+            <view class="poster-title">{{poster.title}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 长按操作弹窗 -->
+  <view class="action-modal" wx:if="{{showActionModal}}" catchtap="closeActionModal">
+    <view class="action-modal-content" catchtap="">
+      <view class="action-modal-title">选择操作</view>
+      <view class="action-item" bindtap="saveImage">
+        <text class="action-text">保存图片</text>
+      </view>
+      <view class="action-item" bindtap="closeActionModal">
+        <text class="action-text cancel">取消</text>
+      </view>
+    </view>
+  </view>
+
+  <tabbar current="ar-experience"></tabbar>
+</view>  

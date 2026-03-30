@@ -1,0 +1,94 @@
+<view class="page-container">
+  <!-- 加载状态 -->
+  <view class="loading-overlay" wx:if="{{isInitializing}}">
+    <view class="loading-content">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">正在初始化账号...</text>
+    </view>
+  </view>
+
+  <!-- 顶部用户信息 -->
+  <view class="profile-section">
+    <view class="profile-content">
+      <image class="avatar" src="{{userInfo.avatarUrl || '../../images/default-avatar.png'}}" mode="aspectFill" bindtap="onAvatarTap"></image>
+      <view class="info-text">
+        <view class="nickname">
+          <block wx:if="{{isLoggedIn}}">{{userInfo.nickName}}</block>
+          <block wx:else>点击头像设置</block>
+        </view>
+        <view class="login-status" wx:if="{{isLoggedIn}}">
+          <text class="status-text">已设置</text>
+        </view>
+        <view class="login-hint" wx:if="{{!isLoggedIn}}">
+          <text class="hint-text">点击头像登录并设置个人资料</text>
+        </view>
+      </view>
+      <view class="settings-icon-wrapper">
+        <image class="settings-icon" src="/images/icons/settings.png" mode="widthFix" bindtap="handleSettingsTap"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 网格菜单 -->
+  <view class="card-section grid-card">
+    <view class="grid-menu">
+      <view class="grid-item" wx:for="{{gridItems}}" wx:key="title" bindtap="handleNavigate" data-url="{{item.url}}">
+        <image class="item-icon" src="{{item.icon}}"></image>
+        <view class="item-title">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表菜单 -->
+  <view class="card-section list-card">
+    <view class="list-menu">
+      <view class="list-item" wx:for="{{listItems}}" wx:key="title" bindtap="handleNavigate" data-url="{{item.url}}">
+        <view class="item-title">{{item.title}}</view>
+        <view class="arrow-icon">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="card-section logout-card" wx:if="{{isLoggedIn}}">
+    <button class="logout-btn" bindtap="handleLogout">
+      <text class="logout-text">退出登录</text>
+    </button>
+  </view>
+
+  <!-- 首次登录弹窗 -->
+  <view wx:if="{{showFirstLoginDialog}}" class="dialog-mask" catchtouchmove="true">
+    <view class="first-login-dialog">
+      <view class="dialog-title">欢迎使用</view>
+      <view class="dialog-content">
+        <text class="dialog-text">请先设置头像和昵称以开始使用</text>
+      </view>
+      <view class="dialog-actions">
+        <button class="btn cancel" bindtap="handleFirstLoginCancel">取消</button>
+        <button class="btn confirm" bindtap="handleFirstLoginConfirm">开始设置</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 头像昵称设置弹窗 -->
+  <view wx:if="{{showEditDialog}}" class="dialog-mask" catchtouchmove="true">
+    <view class="dialog">
+      <view class="dialog-title">设置头像和昵称</view>
+      <view class="dialog-body">
+        <view class="avatar-row">
+          <image class="avatar large" src="{{tempAvatarUrl || '../../images/default-avatar.png'}}" mode="aspectFill"></image>
+          <view class="avatar-actions">
+            <button class="avatar-btn wechat" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">选择照片</button>
+          </view>
+        </view>
+        <view class="nickname-row">
+          <input class="nickname-input"  placeholder="请输入您的昵称" value="{{tempNickname}}" bindinput="onNicknameInput" />
+        </view>
+      </view>
+      <view class="dialog-actions">
+        <button class="btn cancel" bindtap="cancelEdit">取消</button>
+        <button class="btn confirm" bindtap="saveCustomProfile" disabled="{{!hasUserInfo}}">保存</button>
+      </view>
+    </view>
+  </view>
+</view>

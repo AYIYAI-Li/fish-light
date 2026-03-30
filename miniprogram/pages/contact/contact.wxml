@@ -1,0 +1,47 @@
+<view class="page-container">
+  <view class="top-background">
+    <image src="/images/background.png" class="background-image" mode="aspectFill"></image>
+    <view class="background-overlay">
+      <text class="background-title">联系我们</text>
+      <text class="background-subtitle">我们期待与您的交流，为您提供最优质的服务</text>
+    </view>
+  </view>
+  
+
+  <view class="main-content">
+    <view class="contact-info-section">
+      <view class="section-title">联系方式</view>
+      <view class="contact-item">
+        <view class="contact-icon phone-icon">📞</view>
+        <view class="contact-content">
+          <view class="contact-label">官方电话</view>
+          <view class="contact-value">{{contactInfo.phone}}</view>
+        </view>
+      </view>
+
+      <view class="contact-item">
+        <view class="contact-icon wechat-icon">💬</view>
+        <view class="contact-content">
+          <view class="contact-label">官方微信</view>
+          <view class="contact-value">{{contactInfo.wechat}}</view>
+        </view>
+      </view>
+
+      <view class="contact-item">
+        <view class="contact-icon email-icon">📧</view>
+        <view class="contact-content">
+          <view class="contact-label">邮箱地址</view>
+          <view class="contact-value">{{contactInfo.email}}</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="tips-section">
+      <view class="section-title">温馨提示</view>
+      <view class="tips-content">
+        <view class="tip-item">• 如有任何疑问及合作意向，欢迎咨询</view>
+      </view>
+    </view>
+  </view>
+</view>
