@@ -1,0 +1,72 @@
+<view class="page-container">
+  <view class="top-background">
+    <image src="/images/background.png" class="background-image" mode="aspectFill"></image>
+    <view class="background-overlay">
+      <text class="background-title">景区导览</text>
+    </view>
+  </view>
+  
+
+  <view class="main-content">
+    <!-- 地图区域 -->
+    <view class="map-section">
+      <view class="map-container">
+        <image
+          class="handmap-image"
+          src="{{handmapUrl}}"
+          mode="widthFix"
+        />
+        <!-- 地图标记点 -->
+        <block wx:for="{{spots}}" wx:for-item="spot" wx:key="id">
+          <view
+            class="{{'map-marker marker-' + spot.id + (activeSpotId === spot.id ? ' active' : '')}}"
+            style="top:{{spot.top}}%;left:{{spot.left}}%;"
+            bindtap="onSelectSpot"
+            data-id="{{spot.id}}"
+          >{{spot.id}}</view>
+        </block>
+      </view>
+      <view class="map-controls">
+        <view class="map-btn active">地图</view>
+      </view>
+    </view>
+
+    <!-- 详细信息面板 -->
+    <view class="detail-panel" wx:if="{{activeSpot}}">
+      <view class="detail-header">
+        <image class="detail-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/{{activeSpot.id}}.png"></image>
+        <view class="detail-info">
+          <text class="detail-title">{{activeSpot.title}}</text>
+          <text class="detail-address">{{activeSpot.address}}</text>
+        </view>
+      </view>
+      <view class="detail-desc">{{activeSpot.description}}</view>
+      <view class="detail-actions">
+        <button class="action-btn primary" bindtap="onNavigate">导航</button>
+        <button class="action-btn secondary" bindtap="onShare" open-type="share">分享</button>
+      </view>
+    </view>
+
+    <!-- 打卡点列表 -->
+    <view class="spots-section">
+      <view class="section-title">打卡点</view>
+      <view class="spots-grid">
+        <block wx:for="{{spots}}" wx:for-item="spot" wx:key="id">
+          <view
+            class="spot-card{{activeSpotId === spot.id ? ' active' : ''}}"
+            bindtap="onSelectSpot"
+            data-id="{{spot.id}}"
+          >
+          <image class="spot-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/{{spot.id}}.png"></image>
+            <view class="spot-title">{{spot.title}}</view>
+            <view class="spot-desc">{{spot.desc}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  
+
+  <tabbar current="guide"></tabbar>
+</view>
+
