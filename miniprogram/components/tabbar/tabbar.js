@@ -15,7 +15,7 @@ Component({
       },
       {
         key: 'ar-experience',
-        text: 'AR体验',
+        text: 'AR效果展示',
         img: '/images/AR.png',
         url: '/pages/ar-experience/ar-experience'
       },
