@@ -1,5 +1,6 @@
 Page({
     data: {
+        handmapUrl:"cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/maps/handmap.png",
       spots: [
         {
           id: 1,
@@ -105,27 +106,27 @@ Page({
         }
       });
     },
-    // 修改后的分享按钮点击事件
+
     onShare() {
       const { activeSpot } = this.data;
       if (!activeSpot) {
         wx.showToast({ title: '暂无可分享的打卡点', icon: 'error' });
         return;
       }
-      // 主动触发分享界面（微信小程序需要通过 button open-type="share" 或此方式触发）
+
       wx.showShareMenu({
-        withShareTicket: true, // 是否带分享票据
-        menus: ['shareAppMessage', 'shareTimeline'] // 支持分享给好友、朋友圈
+        withShareTicket: true,
+        menus: ['shareAppMessage', 'shareTimeline']
       });
     },
-    // 新增：配置分享内容（核心）
+
     onShareAppMessage() {
         const { activeSpot } = this.data;
         return {
           title: `推荐打卡：${activeSpot.title}`,
           path: `/pages/guide/guide?id=${activeSpot.id}`,
-          // 重点：自动用当前景点的图片当封面
-          imageUrl: `/images/spots/${activeSpot.id}.png`
+
+          imageUrl: `cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/${activeSpot.id}.png`
         };
       },
       
@@ -133,8 +134,7 @@ Page({
         const { activeSpot } = this.data;
         return {
           title: `打卡佛山美景：${activeSpot.title}`,
-          // 朋友圈封面也用当前景点图
-          imageUrl: `/images/spots/${activeSpot.id}.png`
+          imageUrl: `cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/${activeSpot.id}.png`
         };
       }
   });
