@@ -1,0 +1,31 @@
+<view class="page-container">
+  <view class="top-background">
+    <image src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/background.png" class="background-image" mode="aspectFill"></image>
+    <view class="background-overlay">
+      <text class="background-title">文化百科</text>
+      <text class="background-subtitle">深入了解鱼灯文化的历史、工艺与传承</text>
+    </view>
+  </view>
+  
+
+  <view class="main-content">
+    <view class="articles-section">
+      <view class="articles-list">
+        <block wx:if="{{filteredData.length > 0}}">
+          <view class="article-card" 
+                wx:for="{{filteredData}}" 
+                wx:key="id">
+            <view class="article-visual">
+              <image src="{{item.image}}" mode="aspectFill" class="article-img"></image>
+            </view>
+            <view class="content-card">
+              <view class="article-title">{{item.title}}</view>  
+              <view class="article-summary">{{item.summary}}</view>    
+              <view class="article-content">{{item.content}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

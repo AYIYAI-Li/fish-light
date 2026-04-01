@@ -1,0 +1,85 @@
+<view class="page-container">
+  <view class="header">
+    <image class="logo" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/Fish.png" mode="aspectFit"></image>
+    <view class="app-name">鱼灯非遗文化</view>
+    <view class="app-version">版本 1.0.0</view>
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">关于我们</view>
+    <view class="description">
+      鱼灯非遗文化小程序致力于传承和弘扬中国传统鱼灯制作技艺，通过现代科技手段让更多人了解、体验和参与非遗文化的保护与传承。
+    </view>
+  </view>
+
+  <view class="content-section">
+    <view class="section-title">功能特色</view>
+         <view class="feature-list">
+       <view class="feature-item">
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/AR.png" mode="aspectFit"></image>
+         <view class="feature-content">
+           <view class="feature-title">AR效果展示</view>
+           <view class="feature-desc">鱼灯制作过程展示</view>
+         </view>
+       </view>
+       <view class="feature-item">
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/class.png" mode="aspectFit"></image>
+         <view class="feature-content">
+           <view class="feature-title">非遗课堂</view>
+           <view class="feature-desc">鱼灯小知识</view>
+         </view>
+       </view>
+       <view class="feature-item">
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/guide.png" mode="aspectFit"></image>
+         <view class="feature-content">
+           <view class="feature-title">景区导览</view>
+           <view class="feature-desc">手绘地图概览</view>
+         </view>
+       </view>
+       <view class="feature-item">
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/community.png" mode="aspectFit"></image>
+         <view class="feature-content">
+           <view class="feature-title">社区交流</view>
+           <view class="feature-desc">交流鱼灯相关信息</view>
+         </view>
+       </view>
+     </view>
+  </view>
+
+     <view class="content-section">
+     <view class="section-title">开发信息</view>
+     <view class="info-list">
+       <view class="info-item">
+         <view class="info-label">开发团队</view>
+         <view class="info-value">金种子团队</view>
+       </view>
+       <view class="info-item">
+         <view class="info-label">技术支持</view>
+         <view class="info-value">微信开发者工具</view>
+       </view>
+       <view class="info-item">
+         <view class="info-label">更新时间</view>
+         <view class="info-value">2026年4月</view>
+       </view>
+     </view>
+   </view>
+
+   <view class="content-section">
+     <view class="section-title">联系我们</view>
+     <view class="contact-info">
+       <view class="contact-item" bindtap="copyContact" data-type="email">
+         <view class="contact-text">邮箱：{{appInfo.contact.email}}</view>
+         <view class="copy-hint">点击复制</view>
+       </view>
+       <view class="contact-item" bindtap="copyContact" data-type="wechat">
+         <view class="contact-text">微信：{{appInfo.contact.wechat}}</view>
+         <view class="copy-hint">点击复制</view>
+       </view>
+     </view>
+   </view>
+
+ 
+   <view class="footer">
+     <view class="copyright">© 2026年4月 鱼灯非遗文化 All rights reserved.</view>
+   </view>
+</view>

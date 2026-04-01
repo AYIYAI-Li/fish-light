@@ -1,0 +1,182 @@
+<view class="page-container">
+  <view class="page-header">
+    <text class="page-title">社区交流</text>
+    <view>
+      <text class="page-subtitle">用户留言、内容分享，与其他爱好者交流心得</text>
+    </view>
+  </view>
+
+  <!-- 发布动态卡片 -->
+  <view class="publish-card" bindtap="onShowPostModal">
+    <view class="publish-icon"></view>
+    <view class="publish-title">发布动态</view>
+    <view class="publish-desc">分享你的制作心得</view>
+  </view>
+
+  <!-- 动态列表 -->
+  <view class="posts-section">
+    <view class="section-title">最新动态</view>
+    <view class="post-list">
+      <block wx:for="{{posts}}" wx:for-item="post" wx:key="id">
+        <view class="post-item">
+          <view class="post-header">
+            <image
+              class="user-avatar"
+              src="{{post.avatar}}"
+              mode="aspectFill"
+              binderror="onAvatarError"
+              data-type="post"
+              data-id="{{post.id}}"
+            />
+            
+            <view class="user-info">
+              <text>{{post.user}}</text>
+              <text style="font-size:12px;color:#666;">{{post.time}}</text>
+            </view>
+          </view>
+          <view class="post-content">
+            <view class="post-text">{{post.content}}</view>
+            <block wx:if="{{post.images && post.images.length}}">
+              <view class="post-images">
+                <block wx:for="{{post.images}}" wx:for-item="img" wx:key="img">
+                  <image class="post-image" src="{{img}}" mode="aspectFill"></image>
+                </block>
+              </view>
+            </block>
+          </view>
+          <view class="post-actions">
+            <view class="post-action" bindtap="onShowCommentModal" data-id="{{post.id}}">💬 评论 </view>
+            <view class="post-action" wx:if="{{post.userOpenId === userOpenId}}" bindtap="onDeletePost" data-id="{{post.id}}">🗑️ 删除</view>
+          </view>
+
+          <!-- 评论展示 -->
+          <view class="comment-list" wx:if="{{comments[post.id] && comments[post.id].length}}">
+            <block wx:for="{{comments[post.id]}}" wx:for-item="comment" wx:key="id">
+              <block wx:if="{{!comment.replyTo}}">
+                <view class="comment-item">
+                  <view class="comment-main">
+                    <text>
+                      <text class="comment-user">{{comment.user}}:</text>{{comment.text}}
+                    </text>
+                  </view>
+                  <view class="comment-meta-row">
+                    <text class="comment-time">{{comment.time}}</text>
+                    <view class="comment-actions-right">
+                      <text class="comment-action-btn"
+                        bindtap="onReplyComment"
+                        data-postid="{{post.id}}"
+                        data-id="{{comment.id}}"
+                        data-user="{{comment.user}}"
+                      >回复</text>
+                      <text class="comment-action-btn"
+                        wx:if="{{comment.userOpenId === userOpenId}}"
+                        bindtap="onDeleteComment"
+                        data-postid="{{post.id}}"
+                        data-id="{{comment.id}}"
+                        data-user="{{comment.user}}"
+                      >删除</text>
+                    </view>
+                  </view>
+                </view>
+                <!-- 渲染所有回复 -->
+                <block wx:for="{{comments[post.id]}}" wx:for-item="reply" wx:key="id">
+                  <block wx:if="{{reply.replyTo === comment.id}}">
+                    <view class="comment-item reply-item">
+                      <view class="comment-main">
+                        <text>
+                          <text class="comment-user">{{reply.user}}:</text>回复{{reply.replyToUser}}: {{reply.text}}
+                        </text>
+                      </view>
+                      <view class="comment-meta-row">
+                        <text class="comment-time">{{reply.time}}</text>
+                        <view class="comment-actions-right">
+                          <text class="comment-action-btn"
+                            bindtap="onReplyComment"
+                            data-postid="{{post.id}}"
+                            data-id="{{reply.id}}"
+                            data-user="{{reply.user}}"
+                          >回复</text>
+                          <!-- 仅回复作者本人才显示（修正为按 openId） -->
+                          <text class="comment-action-btn"
+                            wx:if="{{reply.userOpenId === userOpenId}}"
+                            bindtap="onDeleteComment"
+                            data-postid="{{post.id}}"
+                            data-id="{{reply.id}}"
+                            data-user="{{reply.user}}"
+                          >删除</text>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </block>
+              </block>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 发布动态弹窗 -->
+  <view class="post-modal" wx:if="{{showPostModal}}">
+    <view class="post-modal-content">
+      <view class="post-modal-header">发布动态</view>
+      <textarea class="post-textarea" placeholder="分享你的制作心得、学习感悟或有趣发现..." value="{{postContent}}" bindinput="onPostContentInput"></textarea>
+      <view class="image-upload">
+        <button class="upload-btn" bindtap="onChooseImage">上传图片</button>
+        <view class="preview-list">
+          <block wx:for="{{postImages}}" wx:for-item="img" wx:for-index="idx" wx:key="idx">
+            <view class="preview-item">
+              <image class="preview-image" src="{{img}}" mode="aspectFill"></image>
+              <view class="remove-image" bindtap="onRemoveImage" data-idx="{{idx}}">×</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="post-modal-actions">
+        <button class="cancel-btn" bindtap="onHidePostModal">取消</button>
+        <button class="submit-btn" bindtap="onSubmitPost">发布</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论弹窗 -->
+  <view class="comment-modal" wx:if="{{showCommentModal}}">
+    <view class="comment-modal-content">
+      <view class="comment-modal-header">发表评论</view>
+      <textarea class="comment-textarea" placeholder="写下你的评论..." value="{{commentInput}}" bindinput="onCommentInput"></textarea>
+      <view class="comment-modal-actions">
+        <button class="cancel-btn" bindtap="onHideCommentModal">取消</button>
+        <button class="submit-btn" bindtap="onSendComment">发送</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 交流群 -->
+  <view class="groups-section">
+    <view class="section-title">交流群</view>
+    <view class="groups-grid">
+      <block wx:for="{{groups}}" wx:for-item="item" wx:for-index="idx" wx:key="title">
+        <view class="group-card" bindtap="onShowGroupModal" data-idx="{{idx}}">
+          <view class="group-icon"></view>
+          <view class="group-title">{{item.title}}</view>
+          <view class="group-desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 交流群弹窗 -->
+  <view class="group-modal" wx:if="{{showGroupModal}}">
+    <view class="group-modal-content">
+      <view class="group-modal-title">{{groupModalInfo.title}}</view>
+      <view class="group-modal-desc">{{groupModalInfo.desc}}</view>
+      <view class="group-modal-qq">QQ群号：{{groupModalInfo.qq}}</view>
+      <view class="group-modal-actions">
+        <button class="group-modal-close" bindtap="onHideGroupModal">关闭</button>
+      </view>
+    </view>
+  </view>
+  
+  <tabbar current="community"></tabbar>
+</view>

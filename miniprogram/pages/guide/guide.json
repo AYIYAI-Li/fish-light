@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "景区导览",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar"
+  }
+}
