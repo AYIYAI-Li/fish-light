@@ -10,11 +10,11 @@
   <!-- 顶部用户信息 -->
   <view class="profile-section">
     <view class="profile-content">
-      <image class="avatar" src="{{userInfo.avatarUrl || '../../images/default-avatar.png'}}" mode="aspectFill" bindtap="onAvatarTap"></image>
+      <image class="avatar" src="{{userInfo.avatarUrl || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png'}}" mode="aspectFill" bindtap="onAvatarTap"></image>
       <view class="info-text">
         <view class="nickname">
           <block wx:if="{{isLoggedIn}}">{{userInfo.nickName}}</block>
-          <block wx:else>点击头像设置</block>
+          <block wx:else>请登录</block>
         </view>
         <view class="login-status" wx:if="{{isLoggedIn}}">
           <text class="status-text">已设置</text>
@@ -24,7 +24,7 @@
         </view>
       </view>
       <view class="settings-icon-wrapper">
-        <image class="settings-icon" src="/images/icons/settings.png" mode="widthFix" bindtap="handleSettingsTap"></image>
+        <image class="settings-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/settings.png" mode="widthFix" bindtap="handleSettingsTap"></image>
       </view>
     </view>
   </view>
@@ -61,11 +61,11 @@
     <view class="first-login-dialog">
       <view class="dialog-title">欢迎使用</view>
       <view class="dialog-content">
-        <text class="dialog-text">请先设置头像和昵称以开始使用</text>
+        <text class="dialog-text">请先登录以开始使用</text>
       </view>
       <view class="dialog-actions">
         <button class="btn cancel" bindtap="handleFirstLoginCancel">取消</button>
-        <button class="btn confirm" bindtap="handleFirstLoginConfirm">开始设置</button>
+        <button class="btn confirm" bindtap="handleFirstLoginConfirm">登录</button>
       </view>
     </view>
   </view>
@@ -76,7 +76,7 @@
       <view class="dialog-title">设置头像和昵称</view>
       <view class="dialog-body">
         <view class="avatar-row">
-          <image class="avatar large" src="{{tempAvatarUrl || '../../images/default-avatar.png'}}" mode="aspectFill"></image>
+          <image class="avatar large" src="{{tempAvatarUrl || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png'}}" mode="aspectFill"></image>
           <view class="avatar-actions">
             <button class="avatar-btn wechat" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">选择照片</button>
           </view>

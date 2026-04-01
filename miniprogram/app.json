@@ -58,6 +58,12 @@
       "pages": [
         "about"
       ]
+    },
+    {
+      "root": "pages/fish-making",
+      "pages": [
+        "fish-making"
+      ]
     }
   ],
   "window": {

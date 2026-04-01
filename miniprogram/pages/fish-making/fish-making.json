@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "鱼灯制作",
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar"
+  }
+}

@@ -1,6 +1,6 @@
 <view class="page-container">
   <view class="header">
-    <image class="logo" src="/images/Fish.png" mode="aspectFit"></image>
+    <image class="logo" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/Fish.png" mode="aspectFit"></image>
     <view class="app-name">鱼灯非遗文化</view>
     <view class="app-version">版本 1.0.0</view>
   </view>
@@ -16,28 +16,28 @@
     <view class="section-title">功能特色</view>
          <view class="feature-list">
        <view class="feature-item">
-         <image class="feature-icon" src="/images/AR.png" mode="aspectFit"></image>
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/AR.png" mode="aspectFit"></image>
          <view class="feature-content">
            <view class="feature-title">AR效果展示</view>
            <view class="feature-desc">鱼灯制作过程展示</view>
          </view>
        </view>
        <view class="feature-item">
-         <image class="feature-icon" src="/images/class.png" mode="aspectFit"></image>
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/class.png" mode="aspectFit"></image>
          <view class="feature-content">
            <view class="feature-title">非遗课堂</view>
            <view class="feature-desc">鱼灯小知识</view>
          </view>
        </view>
        <view class="feature-item">
-         <image class="feature-icon" src="/images/guide.png" mode="aspectFit"></image>
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/guide.png" mode="aspectFit"></image>
          <view class="feature-content">
            <view class="feature-title">景区导览</view>
            <view class="feature-desc">手绘地图概览</view>
          </view>
        </view>
        <view class="feature-item">
-         <image class="feature-icon" src="/images/community.png" mode="aspectFit"></image>
+         <image class="feature-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/community.png" mode="aspectFit"></image>
          <view class="feature-content">
            <view class="feature-title">社区交流</view>
            <view class="feature-desc">交流鱼灯相关信息</view>

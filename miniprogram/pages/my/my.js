@@ -16,7 +16,7 @@ Page({
     gridItems: [
       {
         title: '我的动态',
-        icon: '/images/comment.png',
+        icon: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/comment.png',
         url: '/pages/my-posts/my-posts'
       },
     ],
@@ -82,9 +82,26 @@ Page({
   onAvatarTap() {
     console.log('[my] avatar tapped, isLoggedIn=', this.data.isLoggedIn);
     if (this.data.isLoggedIn) {
-      this.handleAvatarTap();
+      return;
     } else {
-      this.setData({ showFirstLoginDialog: true });
+      try {
+        const customUserInfo = wx.getStorageSync('custom_user_info');
+        const storedOpenId = wx.getStorageSync('user_openid');
+        const hasCustom =
+          !!customUserInfo &&
+          !!storedOpenId &&
+          !!customUserInfo.nickName &&
+          !!customUserInfo.avatarUrl;
+
+        if (hasCustom) {
+          this.performCloudLogin();
+        } else {
+          this.setData({ showFirstLoginDialog: true });
+        }
+      } catch (e) {
+        console.error('[my] 头像点击检查本地资料失败，使用首次登录流程:', e);
+        this.setData({ showFirstLoginDialog: true });
+      }
     }
   },
 
@@ -105,7 +122,7 @@ Page({
         let avatarUrl = customUserInfo.avatarUrl;
         if (this.isTempFilePath(avatarUrl) || !this.isValidAvatarUrl(avatarUrl)) {
           console.warn('[my] 检测到无效的头像路径，使用默认头像');
-          avatarUrl = '../../images/default-avatar.png';
+          avatarUrl = 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png';
           customUserInfo.avatarUrl = avatarUrl;
           
           // 更新本地存储
@@ -134,7 +151,7 @@ Page({
         // 检查头像有效性
         let avatarUrl = userInfo.avatarUrl;
         if (this.isTempFilePath(avatarUrl) || !this.isValidAvatarUrl(avatarUrl)) {
-          avatarUrl = '../../images/default-avatar.png';
+          avatarUrl = 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png';
           userInfo.avatarUrl = avatarUrl;
         }
         
@@ -160,7 +177,7 @@ Page({
         // 检查头像有效性
         let avatarUrl = storedUserInfo.avatarUrl;
         if (this.isTempFilePath(avatarUrl) || !this.isValidAvatarUrl(avatarUrl)) {
-          avatarUrl = '../../images/default-avatar.png';
+          avatarUrl = 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png';
           storedUserInfo.avatarUrl = avatarUrl;
         }
         
@@ -204,7 +221,7 @@ Page({
           // 检查头像有效性
           let avatarUrl = userInfo.avatarUrl;
           if (this.isTempFilePath(avatarUrl) || !this.isValidAvatarUrl(avatarUrl)) {
-            avatarUrl = '../../images/default-avatar.png';
+            avatarUrl = 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png';
             userInfo.avatarUrl = avatarUrl;
           }
           
@@ -230,12 +247,31 @@ Page({
   async handleFirstLoginConfirm() {
     const app = getApp();
     
-    // 先检查是否已有自定义资料
-    if (this.data.hasCustomProfile) {
+    // 先检查是否已有自定义资料（包含历史登录用户）
+    let hasCustom = this.data.hasCustomProfile;
+    if (!hasCustom) {
+      try {
+        const customUserInfo = wx.getStorageSync('custom_user_info');
+        const storedOpenId = wx.getStorageSync('user_openid');
+        hasCustom =
+          !!customUserInfo &&
+          !!storedOpenId &&
+          !!customUserInfo.nickName &&
+          !!customUserInfo.avatarUrl &&
+          customUserInfo.nickName !== '微信用户';
+      } catch (e) {
+        console.warn('[my] 检查历史自定义资料失败:', e);
+      }
+    }
+
+    if (hasCustom) {
       await this.performCloudLogin();
-      this.setData({ showFirstLoginDialog: false });
+      this.setData({
+        showFirstLoginDialog: false,
+        showEditDialog: false
+      });
     } else {
-      // 显示设置界面
+      // 完全新的用户：登录后引导设置头像昵称
       await this.performCloudLogin();
       this.setData({
         showFirstLoginDialog: false,
@@ -498,7 +534,7 @@ Page({
       // 使用默认头像替代无效路径
       const fixedUserInfo = {
         ...userInfo,
-        avatarUrl: '../../images/default-avatar.png'
+        avatarUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png'
       };
       
       this.setData({ userInfo: fixedUserInfo });

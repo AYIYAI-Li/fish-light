@@ -1,6 +1,6 @@
 <view class="page-container">
   <view class="top-background">
-    <image src="/images/background.png" class="background-image" mode="aspectFill"></image>
+    <image src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/background.png" class="background-image" mode="aspectFill"></image>
     <view class="background-overlay">
       <text class="background-title">联系我们</text>
       <text class="background-subtitle">我们期待与您的交流，为您提供最优质的服务</text>
