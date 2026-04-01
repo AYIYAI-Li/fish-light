@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "3D体验",
-  "usingComponents": {
-    "tabbar": "/components/tabbar/tabbar"
-  }
-}

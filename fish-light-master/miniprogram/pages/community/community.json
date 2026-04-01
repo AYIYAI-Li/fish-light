@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "社区交流",
-  "enablePullDownRefresh": true,
-  "backgroundColor": "#F4F0E4",
-  "usingComponents": {
-    "tabbar": "/components/tabbar/tabbar"
-  }
-}

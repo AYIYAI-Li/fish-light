@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "非遗课堂",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
-  "usingComponents": {
-    "tabbar": "/components/tabbar/tabbar"
-  }
-}
