@@ -1,0 +1,14 @@
+<view class="page-container">
+  <view class="feedback-card">
+    <view class="card-title">问题或建议</view>
+    <textarea class="feedback-textarea" placeholder="请描述您遇到的问题或建议..." maxlength="500" bindinput="handleInput"></textarea>
+    <view class="char-counter">{{contentLength}}/500</view>
+  </view>
+
+  <view class="contact-card">
+    <view class="card-title">联系方式 (选填)</view>
+    <input class="contact-input" placeholder="QQ / 微信 / 手机号" bindinput="handleContactInput"></input>
+  </view>
+
+  <button class="submit-btn" bindtap="submitFeedback">提交</button>
+</view>

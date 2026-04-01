@@ -1,0 +1,53 @@
+.page-container {
+  padding: 24rpx;
+  background-color: #FFFBF2;
+  min-height: 100vh;
+}
+
+.feedback-card, .contact-card {
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.feedback-textarea {
+  width: 100%;
+  height: 300rpx;
+  font-size: 28rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  background-color: #E7E0D0;
+  border-radius: 6px;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 24rpx;
+}
+
+.contact-input {
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  background-color: #E7E0D0;
+  border-radius: 6px;
+}
+
+.submit-btn {
+  background-color: #CBB48B;
+  color: #958D82;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  margin-top: 40rpx;
+}
+
+.submit-btn:active {
+  background-color: #CBB48B;
+}
