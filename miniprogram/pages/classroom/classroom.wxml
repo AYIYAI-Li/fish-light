@@ -1,6 +1,6 @@
 <view class="page-container">
   <view class="top-background">
-    <image src="/images/background.png" class="background-image" mode="aspectFill"></image>
+    <image src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/background.png" class="background-image" mode="aspectFill"></image>
     <view class="background-overlay">
       <text class="background-title">非遗课堂</text>
       <text class="background-subtitle">制作过程视频与快问快答</text>

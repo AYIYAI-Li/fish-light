@@ -16,7 +16,7 @@ Page({
     return {
       title: '鱼灯非遗文化 - 传承千年工艺，体验AR科技',
       path: '/pages/index/index',
-      imageUrl: '/images/Fish.png'
+      imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/Fish.png'
     };
   },
 

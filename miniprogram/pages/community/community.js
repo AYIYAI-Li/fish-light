@@ -5,7 +5,7 @@ Page({
   data: {
     user: '我',
     userNickname: '匿名用户', 
-    userAvatar: '/images/default-avatar.png', 
+    userAvatar: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png', 
     userOpenId: null, 
     posts: [],
     comments: {},
@@ -50,7 +50,7 @@ Page({
         this.setData({ 
           user: customUserInfo.nickName,
           userNickname: customUserInfo.nickName,
-          userAvatar: customUserInfo.avatarUrl || '/images/default-avatar.png',
+          userAvatar: customUserInfo.avatarUrl || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png',
           userOpenId: storedOpenId
         });
         console.log('[community] 从自定义用户信息获取成功');
@@ -63,7 +63,7 @@ Page({
         this.setData({ 
           user: userInfo.nickName || '我',
           userNickname: userInfo.nickName || '匿名用户',
-          userAvatar: userInfo.avatarUrl || '/images/default-avatar.png',
+          userAvatar: userInfo.avatarUrl || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png',
           userOpenId: app.globalData.openid
         });
         console.log('[community] 用户信息同步成功:', userInfo);
@@ -75,7 +75,7 @@ Page({
           this.setData({ 
             user: storedUserInfo.nickName,
             userNickname: storedUserInfo.nickName,
-            userAvatar: storedUserInfo.avatarUrl || '/images/default-avatar.png',
+            userAvatar: storedUserInfo.avatarUrl || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png',
             userOpenId: storedOpenId
           });
           console.log('[community] 从本地存储获取用户信息成功');
@@ -84,7 +84,7 @@ Page({
           this.setData({ 
             user: '我',
             userNickname: '匿名用户',
-            userAvatar: '/images/default-avatar.png',
+            userAvatar: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png',
             userOpenId: null
           });
           console.log('[community] 用户未登录，使用默认信息');
@@ -96,7 +96,7 @@ Page({
       this.setData({ 
         user: '我',
         userNickname: '匿名用户',
-        userAvatar: '/images/default-avatar.png',
+        userAvatar: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png',
         userOpenId: null
       });
     }
@@ -120,7 +120,7 @@ Page({
             id: p._id,
             time: this.formatTime(p.createdAt),
             user: isMine ? currentName : (p.user || '匿名用户'),
-            avatar: isMine ? currentAvatar : (p.avatar || '/images/default-avatar.png'),
+            avatar: isMine ? currentAvatar : (p.avatar || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png'),
             comments: Math.max(0, Number(p.comments) || 0)
           };
         });
@@ -157,7 +157,7 @@ Page({
             id: c._id,
             time: this.formatTime(c.createdAt),
             user: isMine ? currentName : (c.user || '匿名用户'),
-            avatar: isMine ? currentAvatar : (c.avatar || '/images/default-avatar.png')
+            avatar: isMine ? currentAvatar : (c.avatar || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png')
           });
         });
         this.setData({ comments: map });
@@ -547,17 +547,17 @@ Page({
         if (post.avatarFileId) {
           const { fileList } = await wx.cloud.getTempFileURL({ fileList: [post.avatarFileId] });
           const url = fileList && fileList[0] && fileList[0].tempFileURL;
-          const newPosts = posts.map(p => p.id === id ? { ...p, avatar: url || '/images/default-avatar.png' } : p);
+          const newPosts = posts.map(p => p.id === id ? { ...p, avatar: url || 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png' } : p);
           this.setData({ posts: newPosts });
         } else {
-          const newPosts = posts.map(p => p.id === id ? { ...p, avatar: '/images/default-avatar.png' } : p);
+          const newPosts = posts.map(p => p.id === id ? { ...p, avatar: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png' } : p);
           this.setData({ posts: newPosts });
         }
       }
     } catch (err) {
       console.error('刷新头像失败', err);
       if (type === 'post') {
-        const posts = (this.data.posts || []).map(p => p.id === id ? { ...p, avatar: '/images/default-avatar.png' } : p);
+        const posts = (this.data.posts || []).map(p => p.id === id ? { ...p, avatar: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/default-avatar.png' } : p);
         this.setData({ posts });
       }
     }
