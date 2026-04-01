@@ -72,6 +72,11 @@
   flex-direction: column;
   justify-content: center;
 }
+.module-card-wide {
+  grid-column: span 2;
+  height: auto;
+  min-height: 100px;
+}
 .module-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);

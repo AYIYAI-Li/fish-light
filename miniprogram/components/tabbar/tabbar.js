@@ -10,38 +10,44 @@ Component({
       {
         key: 'index',
         text: '首页',
-        img: '/images/index.png',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/index.png',
         url: '/pages/index/index'
       },
       {
         key: 'ar-experience',
-        text: 'AR体验',
-        img: '/images/AR.png',
+        text: 'AR体验展示',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/AR.png',
         url: '/pages/ar-experience/ar-experience'
+      },
+      {
+        key: 'fish-making',
+        text: '鱼灯制作',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/making.png',
+        url: '/pages/fish-making/fish-making'
       },
       {
         key: 'classroom',
         text: '非遗课堂',
-        img: '/images/class.png',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/class.png',
         url: '/pages/classroom/classroom'
       },
       {
         key: 'guide',
         text: '景区导览',
-        img: '/images/guide.png',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/guide.png',
         url: '/pages/guide/guide'
       },
 
       {
         key: 'community',
         text: '社区交流',
-        img: '/images/community.png',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/community.png',
         url: '/pages/community/community'
       },
       {
         key: 'my',
         text: '我的',
-        img: '/images/my.png',
+        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/my.png',
         url: '/pages/my/my'
       },
     ]
