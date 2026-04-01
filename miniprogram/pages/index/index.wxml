@@ -49,5 +49,7 @@
       </navigator>
     </view>
   </view>
-<tabbar current="index"></tabbar>
-</view>
+  
+
+  <tabbar current="index"></tabbar>
+</view> 
