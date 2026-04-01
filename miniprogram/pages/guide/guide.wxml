@@ -34,7 +34,7 @@
     <!-- 详细信息面板 -->
     <view class="detail-panel" wx:if="{{activeSpot}}">
       <view class="detail-header">
-        <view class="detail-icon">{{activeSpot.icon}}</view>
+        <image class="detail-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/{{activeSpot.id}}.png"></image>
         <view class="detail-info">
           <text class="detail-title">{{activeSpot.title}}</text>
           <text class="detail-address">{{activeSpot.address}}</text>
@@ -43,7 +43,7 @@
       <view class="detail-desc">{{activeSpot.description}}</view>
       <view class="detail-actions">
         <button class="action-btn primary" bindtap="onNavigate">导航</button>
-        <button class="action-btn secondary" bindtap="onShare">分享</button>
+        <button class="action-btn secondary" bindtap="onShare" open-type="share">分享</button>
       </view>
     </view>
 
@@ -57,7 +57,7 @@
             bindtap="onSelectSpot"
             data-id="{{spot.id}}"
           >
-            <text class="spot-icon">{{spot.icon}}</text>
+          <image class="spot-icon" src="cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/spots/{{spot.id}}.png"></image>
             <view class="spot-title">{{spot.title}}</view>
             <view class="spot-desc">{{spot.desc}}</view>
           </view>

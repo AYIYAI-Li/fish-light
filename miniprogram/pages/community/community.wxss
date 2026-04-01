@@ -5,6 +5,7 @@
 }
 .page-header {
   margin-bottom: 24px;
+  text-align: center;
 }
 .page-title {
   font-size: 24px;

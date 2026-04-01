@@ -14,7 +14,7 @@ Page({
         imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/2扎骨架.png'
       },
       {
-        title: '们纱贴纸',
+        title: '扪纱贴纸',
         imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/3扪纱贴纸.png'
       },
       {
@@ -34,7 +34,7 @@ Page({
       {
         id: 1,
         title: '红色鱼灯AR海报',
-        qrImage: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/红色海报二维码.png',
+        qrImage: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/二维码.jpg',
         posterImage: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/红色海报.png',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/红色海报视频.mp4'
       },

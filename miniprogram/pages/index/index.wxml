@@ -24,15 +24,15 @@
       <view class="module-title">景区导览</view>
       <view class="module-desc">手绘地图概览</view>
     </navigator>
-    <navigator url="/pages/fish-making/fish-making" class="module-card">
-      <text class="module-icon"></text>
-      <view class="module-title">鱼灯制作</view>
-      <view class="module-desc">体验鱼灯制作</view>
-    </navigator>
-    <navigator url="/pages/community/community" class="module-card module-card-wide">
+    <navigator url="/pages/community/community" class="module-card">
       <text class="module-icon"></text>
       <view class="module-title">社区交流</view>
       <view class="module-desc">交流鱼灯相关信息</view>
+    </navigator>
+    <navigator url="/pages/fish-making/fish-making" class="module-card module-card-wide">
+      <text class="module-icon"></text>
+      <view class="module-title">鱼灯制作</view>
+      <view class="module-desc">体验鱼灯制作</view>
     </navigator>
   </view>
 

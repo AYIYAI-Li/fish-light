@@ -10,7 +10,7 @@
   <view class="content-section">
     <view class="panel-card">
       <view class="section-title">组件选择</view>
-      <view class="section-desc">点击不同组件，尝试完成鱼灯的制作顺序</view>
+      <view class="section-desc">拖动组件至下方区域，完成鱼灯的制作</view>
       <view class="components-grid">
         <block wx:for="{{components}}" wx:key="name">
           <view
