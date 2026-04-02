@@ -54,17 +54,15 @@ Component({
   },
   methods: {
     onTabTap(e) {
-      const { key, url } = e.currentTarget.dataset;
+      const { key, url, type } = e.currentTarget.dataset;
       if (key === this.data.current) return;
-      
-      wx.switchTab({
-        url: url,
-        fail: () => {
-          wx.navigateTo({
-            url: url
-          });
-        }
-      });
+
+      if (type === 'tab') {
+        wx.switchTab({ url });
+      } 
+      else {
+        wx.redirectTo({ url });
+      }
     }
   }
 }); 
