@@ -24,12 +24,6 @@
       ]
     },
     {
-      "root": "pages/community",
-      "pages": [
-        "community"
-      ]
-    },
-    {
       "root": "pages/contact",
       "pages": [
         "contact"
@@ -45,12 +39,6 @@
       "root": "pages/feedback",
       "pages": [
         "feedback"
-      ]
-    },
-    {
-      "root": "pages/my-posts",
-      "pages": [
-        "my-posts"
       ]
     },
     {

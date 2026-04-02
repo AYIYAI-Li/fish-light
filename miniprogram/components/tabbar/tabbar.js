@@ -37,13 +37,6 @@ Component({
         img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/guide.png',
         url: '/pages/guide/guide'
       },
-
-      {
-        key: 'community',
-        text: '社区交流',
-        img: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/community.png',
-        url: '/pages/community/community'
-      },
       {
         key: 'my',
         text: '我的',
@@ -65,4 +58,4 @@ Component({
       }
     }
   }
-}); 
+});
