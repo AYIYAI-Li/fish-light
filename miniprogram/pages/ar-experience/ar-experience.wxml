@@ -42,6 +42,11 @@
 
   <!-- AR海报效果部分 - 六个格子布局 -->
   <view wx:if="{{activeSection === 'poster'}}" class="content-section">
+    <view wx:if="{{showPosterTip}}" class="poster-tip">
+      <view class="poster-tip-item">1. 拿出实物海报或用其余电子设备打开电子海报</view>
+      <view class="poster-tip-item">2. 手机扫描对应二维码后打开<text class="poster-tip-bold">AR扫呀扫</text>小程序</view>
+      <view class="poster-tip-item">3. 将扫描界面对准实物海报或电子海报，即可观看AR效果</view>
+    </view>
     <view class="posters-grid">
       <block wx:for="{{posters}}" wx:for-item="poster" wx:for-index="idx" wx:key="id">
         <view class="poster-card">

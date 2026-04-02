@@ -260,3 +260,23 @@
 .action-text.cancel {
   color: #999;
 }
+
+/* AR海报操作提示 */
+.poster-tip {
+  background: #FFFBF2;
+  border: 1px solid #CFB882;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.poster-tip-item {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+}
+
+.poster-tip-bold {
+  font-weight: 600;
+  color: #8B6914;
+}

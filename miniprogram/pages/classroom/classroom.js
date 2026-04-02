@@ -5,26 +5,31 @@ Page({
       {
         title: '鱼灯制作全过程',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/全过程.mp4',
+        poster: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/all.jpg',   
         isFull: true
       },
       {
         title: '第一步：制作骨架',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/第三步-制作骨架.mp4',
+        poster: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/1.jpg',   // 新增
         step: 1
       },
       {
-        title: '第1步：粘胶',
+        title: '第二步：粘胶',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/第一步-糊布：贴胶（1）.mp4',
+        poster: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/2.jpg',   
         step: 2
       },
       {
         title: '第三步：糊布',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/第一步-糊布（2）.mp4',
+        poster: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/3.jpg',   
         step: 3
       },
       {
         title: '第四步：装配',
         videoUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/第四步-装配.mp4',
+        poster: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/production_process/4.jpg',   
         step: 4
       }
     ],
