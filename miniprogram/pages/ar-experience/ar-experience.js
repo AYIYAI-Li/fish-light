@@ -2,6 +2,7 @@ Page({
   data: {
     activeSection: 'steps',
     showActionModal: false,
+    showPosterTip: false,
     currentPosterIndex: 0,
     imageType: 'poster',
     steps: [
@@ -51,7 +52,8 @@ Page({
   onSectionTap(e) {
     const section = e.currentTarget.dataset.section;
     this.setData({
-      activeSection: section
+      activeSection: section,
+      showPosterTip: section === 'poster'
     });
   },
 
