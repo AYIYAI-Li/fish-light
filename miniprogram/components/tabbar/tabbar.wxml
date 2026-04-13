@@ -6,6 +6,7 @@
     bindtap="onTabTap"
     data-key="{{item.key}}"
     data-url="{{item.url}}"
+    data-type="{{item.type}}"
   >
     <image wx:if="{{item.img}}" src="{{item.img}}" class="tab-img" mode="aspectFit"></image>
     <text wx:else class="tab-icon">{{item.icon}}</text>

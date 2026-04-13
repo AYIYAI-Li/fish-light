@@ -13,13 +13,8 @@ Page({
     isInitializing: true,
     showFirstLoginDialog: false,
     hasCustomProfile: false,
-    gridItems: [
-      {
-        title: '我的动态',
-        icon: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/icon/comment.png',
-        url: '/pages/my-posts/my-posts'
-      },
-    ],
+    gridItems: [],
+
     listItems: [
       {
         title: '关于我们',

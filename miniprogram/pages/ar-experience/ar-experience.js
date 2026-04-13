@@ -19,12 +19,12 @@ Page({
         imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/3扪纱贴纸.png'
       },
       {
-        title: '上色',
-        imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/4上色.png'
-      },
-      {
         title: '装灯',
         imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/5装灯.png'
+      },
+      {
+        title: '上色',
+        imageUrl: 'cloud://cloud1-4g4nzi8a994f009b.636c-cloud1-4g4nzi8a994f009b-1411647226/AR效果展示部分图片+视频/鱼灯透卡/4上色.png'
       },
       {
         title: '装配件',
